@@ -1,48 +1,37 @@
-# Django Models with PostgreSQL
+# Stage 2 
 
-This repository explores Django models and their integration with PostgreSQL. You'll learn how to set up Django to work with a PostgreSQL database step by step.
+after going with the installation we are now ready to create our own models and follow the makemigration , migrate phase 
+## What is Database Migrations (Django Migrations) ?
 
-## Installation
+database migrations in the context of Django involve managing changes to a database schema while preserving data integrity. These migrations are used to apply changes to the database, such as creating, altering, or deleting tables and columns.
 
-To integrate with PostgreSQL, follow these steps:
+### 1. makemigrations Command 
 
-### 1. Install PostgreSQL Engine
-
-You need to install the PostgreSQL engine using the `psycopg2` package. Run this command:
+the makemigrations command is the command that will check if there is any new models is added in your project 
+or not  if there is any new update's , it will take responsibility of translating Python Class's to tables inside the Database only translation not excution so a new file with the migration seq will be created with the translated sql form   
 
 ```bash
-pip install psycopg2
+python manage.py makemigrations 
 ```
-This command installs the PostgreSQL engine, which enables PostgreSQL connections and data manipulation through Django's Object-Relational Mapping (ORM).
 
-2. Configure settings.py
-Next, you need to configure your Django project's settings.py to work with PostgreSQL. Open your settings.py file and modify the DATABASES setting as follows:
+
+### 2. migrate Command 
+the migrate command will take the prepared translated file to the excution or stagging phase , in this phase 
+class will be translated to be tables inside database so you can perform ORM quiries on it 
 
 ```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test',          # Your database name
-        'USER': 'postgres',      # Your database username
-        'PASSWORD': '',          # Your database password (leave empty if not needed)
-        'HOST': 'localhost',     # Hostname (use 'localhost' for local development or specify the instance IP for remote)
-        'PORT': '',              # PostgreSQL default port is 5432 (leave blank for default)
-    }
-}
+python manage.py migrate
 ```
-Make sure to replace 'test', 'postgres', and '' with your actual database name, username, and password.
-
-That's it! You've successfully configured your Django project to work with PostgreSQL.
+go Check your pgadmin to visualize your tables 
 
 # Usage
-Explain how to use the repository or provide examples of how Django models are used with PostgreSQL in your project.
+those 2 commands  will be applied  each time you will update on models.py  .
 
 # Contributing
 If you'd like to contribute to this project, please follow these guidelines for code contributions, bug reporting, and feature requests.
 
 # License
-This project is licensed under the MIT License. See the LICENSE.md file for details.
-
+This project is licensed under the MIT License. 
 # Acknowledgments
 Give credit to any individuals, projects, or libraries that inspired or helped you with this project.
 
