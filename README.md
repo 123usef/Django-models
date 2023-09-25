@@ -34,17 +34,18 @@ so for Example we have Company class if we want to Create instance we will say
 
         apple = Company(name='Apple')
     ```   
-    with this you have created instance of the Company named Apple as the name is only the  instance member ,
-    dont forget that we inhertied from models.Model so there is alot behind the seen so apple now is a magical instance 
-    all what you need to save the instance to the Database is assign the save() method
-    to be like this :
+with this you have created instance of the Company named Apple as the name is only the  instance member ,
+dont forget that we inhertied from models.Model so there is alot behind the seen so apple now is a magical instance 
+all what you need to save the instance to the Database is assign the save() method
+to be like this :
+
     ```
         from base.models import Company 
 
         apple = Company(name='Apple')
         apple.save() #now saved to the Database 
     ```   
-    also if you alter the instance name and save it will update 
+also if you alter the instance name and save it will update 
 
     ```
         from base.models import Company 
@@ -73,6 +74,7 @@ so let's take about selecting First and the options then i will leave you with a
 in selecting we will deal with selecting or getting all elements in the table and to get only sepecific one element 
 
 ### selecting all Element :  
+
 ```
     from base.models import Company 
     query = Company.objects.all() 
@@ -84,61 +86,59 @@ in selecting we will deal with selecting or getting all elements in the table an
 
 get() method allows you to pass argument to get only specific element upon certain information
 like this 
-```
-    from base.models import Company 
-    apple = Company.objects.get(id=1) 
     
-    #retrieve the object directly not a list
-    #it could be with name but its not unique so it will return 
+    ```
+        from base.models import Company 
+        apple = Company.objects.get(id=1) 
     
-    #first match 
-    apple = Company.objects.get(name='Apple') 
+        #retrieve the object directly not a list
+        #it could be with name but its not unique so it will return 
+    
+        #first match 
+        apple = Company.objects.get(name='Apple') 
 
-```
-
-
+    ```
 once selecting you can perform operations on it but what about Filtering our data 
 
-
-# Data Filtering 
+# Data Filtering : 
 
 this list provided bellow is all about how to get quires with condition or exclude data from the Query 
 its full with lookups with is our data Filtering proccess and also about how we can chain our quires 
 
-```
-    Language.object.filter(col__filter='value)
+    ```
+        Language.object.filter(col__filter='value)
 
-	Language.object.filter(col__exact='value)
-	
-	Language.object.filter(col__iexact='value) #non case senstive
+        Language.object.filter(col__exact='value)
+        
+        Language.object.filter(col__iexact='value) #non case senstive
 
-	Language.object.filter(col__iexact='value).filter(name__exact='python') #chaining filter
+        Language.object.filter(col__iexact='value).filter(name__exact='python') #chaining filter
 
-	Language.object.exclude(col__iexact='value) # all except the value 
+        Language.object.exclude(col__iexact='value) # all except the value 
 
-	Language.object.filter(col__gte='value) #greater than value 
-	
-q	Language.object.filter(col__lt='value) #less than 
+        Language.object.filter(col__gte='value) #greater than value 
+        
+    	Language.object.filter(col__lt='value) #less than 
 
-	Language.object.filter(col__contains='value) # copntains sub part of the value 
+        Language.object.filter(col__contains='value) # copntains sub part of the value 
 
-	Language.object.filter(col__icontains='value) #non case senstive 
+        Language.object.filter(col__icontains='value) #non case senstive 
 
-	Language.object.filter(name__in=['usif','adel','ahmed' ]) #will return them if found
-	
-	 Language.object.exclude(name__in=['usif','adel','ahmed' ]) #all except the values 
+        Language.object.filter(name__in=['usif','adel','ahmed' ]) #will return them if found
+        
+        Language.object.exclude(name__in=['usif','adel','ahmed' ]) #all except the values 
 
-	 Language.object.filter(name__istartswith='us') #all that match the same start value  
+        Language.object.filter(name__istartswith='us') #all that match the same start value  
 
-	Language.object.filter(name__iendswith='f') #all that match the same end value  
-	
-	Language.object.filter(age__isnull=True) #all the null age
- 
-	Programmer.objects.count() #return programmers Count 
-	
-	Language.object.filter(name__iendswith='f').count() #chainig the quiries 
+        Language.object.filter(name__iendswith='f') #all that match the same end value  
+        
+        Language.object.filter(age__isnull=True) #all the null age
+    
+        Programmer.objects.count() #return programmers Count 
+        
+        Language.object.filter(name__iendswith='f').count() #chainig the quiries 
 
-```
+    ```
 
 # Contributing
 If you'd like to contribute to this project, please follow these guidelines for code contributions, bug reporting, and feature requests.
