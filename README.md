@@ -23,9 +23,12 @@ that will say that objects is the ManagerClass that allows you to manage Queries
     Create , Read , Update , Delete
 
 ## Lets Create and Update a record  in the Company  ?
-    to Create a record inside your migrated models becuase of the ORM you don't have to worry about SQL 
-    all what you will care is the OBJECT and how to deal with 
-    so for Example we have Company class if we want to Create instance we will say 
+
+
+to Create a record inside your migrated models becuase of the ORM you don't have to worry about SQL 
+all what you will care is the OBJECT and how to deal with 
+so for Example we have Company class if we want to Create instance we will say 
+
     ```
         from base.models import Company 
 
